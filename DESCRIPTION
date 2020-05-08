@@ -1,6 +1,6 @@
 Package: vader
 Title: Valence Aware Dictionary and sEntiment Reasoner (VADER)
-Version: 0.0.1
+Version: 0.0.2
 Authors@R: 
     person(given = "Katherine",
            family = "Roehrick",
@@ -8,8 +8,7 @@ Authors@R:
            email = "kr.gitcode@gmail.com")
 Description: A lexicon and rule-based sentiment analysis tool that is specifically 
     attuned to sentiments expressed in social media, and works well on texts from other 
-    domains. 
-    Hutto & Gilbert (2014) (<https://www.aaai.org/ocs/index.php/ICWSM/ICWSM14/paper/view/8109/8122>). 
+    domains. Hutto & Gilbert (2014) <https://www.aaai.org/ocs/index.php/ICWSM/ICWSM14/paper/view/8109/8122>. 
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
@@ -19,8 +18,8 @@ Depends: R (>= 2.10)
 Suggests: spelling
 Language: en-US
 NeedsCompilation: no
-Packaged: 2020-03-31 06:04:21 UTC; kr
+Packaged: 2020-05-07 17:24:20 UTC; kr
 Author: Katherine Roehrick [aut, cre]
 Maintainer: Katherine Roehrick <kr.gitcode@gmail.com>
 Repository: CRAN
-Date/Publication: 2020-03-31 12:50:02 UTC
+Date/Publication: 2020-05-08 08:40:02 UTC

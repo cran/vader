@@ -39,7 +39,7 @@ For the original R Code, please see:
 Modifications to the above scripts include, but are not limited to:
 
 \itemize{
-  \item ALL CAPS fx: updated to account for non-alpha words; i.e. "I'M 100 PERCENT SURE" would previously have been counted as mixed case due the use of to numbers
+  \item ALL CAPS fx: updated to account for non-alpha words; i.e. "I'M 100 PERCENT SURE" would previously have been counted as mixed case due to the use of numbers
   \item IDIOMS fx: added capacity to check for idioms that do not contain any words found in the Vader Lexicon
   \item WORDS+EMOT: strip punctuation while preserving ALL emoticons found in dictionary
   \item Option to turn on/off neutral count
