@@ -1,19 +1,20 @@
-#' VADER (Valence Aware Dictionary and sEntiment Reasoner)
+#' Get a named vector of vader results for a single text document
 #'
-#' Vader is a lexicon and rule-based sentiment analysis tool that is specifically attuned to sentiments expressed in social media.
+#' Use get_vader() to calculate the valence of a single text document.
 #'
-#' Use getVader() to calculate the valence of a text document.
-#'
-#' @param text to be analyzed
-#' @param incl_nt defaults to T, indicates whether you wish to incl 'nt contractions in negation analysis
+#' @param text to be analyzed; for get_vader(), the text should be a character string
+#' @param incl_nt defaults to T, indicates whether you wish to incl n't contractions (e.g., can't) in negation analysis
 #' @param neu_set defaults to T, indicates whether you wish to count neutral words in calculations
 #' @importFrom tm stopwords
-#' @return A vector containing the valence score for each word; an overall, compound valence score for the text; the percentage of positive, negative, and neutral words in the text; and the frequency of the word "but".
+#' @return A named vector containing the valence score for each word; an overall, compound valence score for the text; the weighted percentage of positive, negative, and neutral words in the text; and the frequency of the word "but".
 #' @examples
-#' getVader("I yesn't like it")
-#' getVader("I yesn't like it", incl_nt = FALSE)
-#' getVader("I yesn't like it", neu_set = FALSE)
+#' get_vader("I yesn't like it")
+#' get_vader("I yesn't like it", incl_nt = FALSE)
+#' get_vader("I yesn't like it", neu_set = FALSE)
+#'
 #' @export
+#'
+#' @seealso \code{\link{vader_df}} to get vader results for multiple text documents
 #'
 #' @section References:
 #'
@@ -40,7 +41,7 @@
 #' @section N.B.:
 #' In the examples below, "yesn't" is an internet neologism meaning "no", "maybe yes, maybe no", "didn't", etc.
 
-getVader <- function(text, incl_nt = T, neu_set = T){
+get_vader <- function(text, incl_nt = T, neu_set = T){
   # are 'nt contractions included in negation calculation (if not in negation constants)
   incl_nt <<- incl_nt
   # are neutral words counted
