@@ -1,3 +1,6 @@
+vader 0.1.1:
+Fixed bug where text documents with single words would match with idioms containing multiple words.
+
 vader 0.1.0:
 Contains a new function that calls getVader() on multiple text documents and returns a dataframe of results.
 

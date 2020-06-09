@@ -57,29 +57,32 @@ dic_check_nd <- function(idiomLength, checkIdiom) {
 idioms_check <- function(wpe, i, valence, non_dic = F){
 
   myStrSplit <- unlist(strsplit(tolower(wpe), " "))
-  if(length(grep("[[:punct:]]", myStrSplit)) == 0){
+  # if text is only 1 word, then we shouldn't check idioms
+  if(length(myStrSplit) > 1){
+    if(length(grep("[[:punct:]]", myStrSplit)) == 0){
 
-    checkMe <- paste0("\\b", myStrSplit[i], "\\b")
-    if(length(grep(checkMe, names(IDIOMS))) > 0) {
+      checkMe <- paste0("\\b", myStrSplit[i], "\\b")
+      if(length(grep(checkMe, names(IDIOMS))) > 0) {
 
-      checkIdiom <- NULL
-      strIndex <- i
-      found <- grep(checkMe, names(IDIOMS))
+        checkIdiom <- NULL
+        strIndex <- i
+        found <- grep(checkMe, names(IDIOMS))
 
-      for(f in 1:length(found)){
-        idiomLength <- unlist(strsplit(names(IDIOMS)[found[f]], " "))
+        for(f in 1:length(found)){
+          idiomLength <- unlist(strsplit(names(IDIOMS)[found[f]], " "))
 
-        if(length(idiomLength) < 3) {
-          checkIdiom <- paste0(paste(myStrSplit[strIndex], myStrSplit[strIndex+1]),"|",paste(myStrSplit[strIndex-1], myStrSplit[strIndex]))
-        } else {
-          checkIdiom <- paste0(paste(myStrSplit[strIndex], myStrSplit[strIndex+1], myStrSplit[strIndex+2]), "|",
-                               paste(myStrSplit[strIndex-1], myStrSplit[strIndex], myStrSplit[strIndex+1]))
-          if(i > 1) {checkIdiom <- paste0(checkIdiom, "|", paste(myStrSplit[strIndex-2], myStrSplit[strIndex-1], myStrSplit[strIndex]))}
-        }
-        if(length(grep(checkIdiom, names(IDIOMS))) > 0) {
-          if(non_dic == F) {valence <- dic_check(idiomLength, checkMe, checkIdiom)}
-          else if(!any(idiomLength %in% vaderLexicon$V1)) {valence <- dic_check_nd(idiomLength, checkIdiom)}
-          break
+          if(length(idiomLength) < 3) {
+            checkIdiom <- paste0(paste(myStrSplit[strIndex], myStrSplit[strIndex+1]),"|",paste(myStrSplit[strIndex-1], myStrSplit[strIndex]))
+          } else {
+            checkIdiom <- paste0(paste(myStrSplit[strIndex], myStrSplit[strIndex+1], myStrSplit[strIndex+2]), "|",
+                                 paste(myStrSplit[strIndex-1], myStrSplit[strIndex], myStrSplit[strIndex+1]))
+            if(i > 1) {checkIdiom <- paste0(checkIdiom, "|", paste(myStrSplit[strIndex-2], myStrSplit[strIndex-1], myStrSplit[strIndex]))}
+          }
+          if(length(grep(checkIdiom, names(IDIOMS))) > 0) {
+            if(non_dic == F) {valence <- dic_check(idiomLength, checkMe, checkIdiom)}
+            else if(!any(idiomLength %in% vaderLexicon$V1)) {valence <- dic_check_nd(idiomLength, checkIdiom)}
+            break
+          }
         }
       }
     }

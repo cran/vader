@@ -1,7 +1,7 @@
-b083b4d1bb91fc26d902e68242dec033 *DESCRIPTION
+a79244e7c3a7c0bd4fff5424adf3f84f *DESCRIPTION
 7e868081bc02ba84ba125bc2f33d2eab *LICENSE
 549960fbc4e0c749352fc3ca40525876 *NAMESPACE
-4448d7db2771b4da3a75d8f531800c55 *NEWS.md
+2672bb7fcd7a2df527e9baf49884b6b4 *NEWS.md
 3cd3b1e2876ae0fd4f87e40b45872534 *R/globals.R
 c55c6659357de74ecc5b46fde954efd6 *R/sysdata.rda
 989567e6877f0f48474671b00595a592 *R/vader_df.R
@@ -9,7 +9,7 @@ c55c6659357de74ecc5b46fde954efd6 *R/sysdata.rda
 d39f54579d1519d357479bd5b3b67b92 *R/vader_prep_text.R
 69ed6a682f8430da975fd31fc3c15968 *R/vader_sentiment_score.R
 3f9928f318e6b145672bd8e3f1da0800 *R/vader_sentiment_vector.R
-f0e42a90e270598f8f1b57011c381587 *R/vader_sentiment_word.R
+201ee3e883b202368ab42adf9446b008 *R/vader_sentiment_word.R
 0963a723f6cafc98b6ae56b01f03066a *R/vader_setup.R
 4f159cf2ec9a1c3372d7b89bfee8a3d8 *man/get_vader.Rd
 1ecfd306ec516ebe3fefb7f298e4c038 *man/vader_df.Rd
