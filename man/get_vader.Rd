@@ -9,7 +9,7 @@ get_vader(text, incl_nt = T, neu_set = T)
 \arguments{
 \item{text}{to be analyzed; for get_vader(), the text should be a character string}
 
-\item{incl_nt}{defaults to T, indicates whether you wish to incl n't contractions (e.g., can't) in negation analysis}
+\item{incl_nt}{defaults to T, indicates whether you wish to incl UNUSUAL n't contractions (e.g., yesn't) in negation analysis}
 
 \item{neu_set}{defaults to T, indicates whether you wish to count neutral words in calculations}
 }

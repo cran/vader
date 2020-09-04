@@ -1,6 +1,6 @@
 Package: vader
 Title: Valence Aware Dictionary and sEntiment Reasoner (VADER)
-Version: 0.1.1
+Version: 0.2.0
 Authors@R: 
     person(given = "Katherine",
            family = "Roehrick",
@@ -12,14 +12,14 @@ Description: A lexicon and rule-based sentiment analysis tool that is specifical
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.0.2
+RoxygenNote: 7.1.0
 Imports: tm
 Depends: R (>= 2.10)
 Suggests: spelling
 Language: en-US
 NeedsCompilation: no
-Packaged: 2020-06-09 01:42:01 UTC; kr
+Packaged: 2020-09-03 15:39:15 UTC; kr
 Author: Katherine Roehrick [aut, cre]
 Maintainer: Katherine Roehrick <kr.gitcode@gmail.com>
 Repository: CRAN
-Date/Publication: 2020-06-09 05:30:02 UTC
+Date/Publication: 2020-09-04 18:00:02 UTC

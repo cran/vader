@@ -1,3 +1,8 @@
+vader 0.2.0:
+- Changed get_vader function so that it returns 1 index item with a character string of individual word scores (instead of multiple index items for each individual word score)
+- Changed get_vader function so that it returns a named vector of NAs if the text is blank (rather than a single NA)
+- Simplifed vader_df function, changed to lapply rather than for-loop
+
 vader 0.1.1:
 Fixed bug where text documents with single words would match with idioms containing multiple words.
 

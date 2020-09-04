@@ -3,7 +3,7 @@
 #' Use get_vader() to calculate the valence of a single text document.
 #'
 #' @param text to be analyzed; for get_vader(), the text should be a character string
-#' @param incl_nt defaults to T, indicates whether you wish to incl n't contractions (e.g., can't) in negation analysis
+#' @param incl_nt defaults to T, indicates whether you wish to incl UNUSUAL n't contractions (e.g., yesn't) in negation analysis
 #' @param neu_set defaults to T, indicates whether you wish to count neutral words in calculations
 #' @importFrom tm stopwords
 #' @return A named vector containing the valence score for each word; an overall, compound valence score for the text; the weighted percentage of positive, negative, and neutral words in the text; and the frequency of the word "but".
@@ -49,7 +49,7 @@ get_vader <- function(text, incl_nt = T, neu_set = T){
   # converts text to UTF-8 encoding
   text <- iconv(text, to="UTF-8")
   # checks if supplied text is empty
-  if(!grepl("[[:graph:]]", text)) {return(NA)}
+  if(!grepl("[[:graph:]]", text)) {return(c(word_scores = NA, compound = NA, pos = NA, neu = NA, neg = NA, but_count = NA))}
   #returns score to user
   return(polarity_scores(text))
 }

@@ -1,6 +1,4 @@
-# calculate sentiment score for each word
-
-#return list of scores for each word in text
+# calculate sentiment score for each word and return compound scores for string
 polarity_scores <- function(text){
   #split text into  vector of single words
   wpe <- wordsPlusEmo(text)
@@ -39,8 +37,14 @@ polarity_scores <- function(text){
   names(sentiments) <- NULL
   but_count <- unlist(but_results[2])
 
+  #return list of scores for each word in text
+  word_scores <- paste0("{",paste(sentiments,collapse = ", "), "}")
+  names(word_scores) <- "word_scores"
+
   # send sentiment vector and text to function to analyze compound and individual affect (positive, negative, and neutral) scores
   valence_dict <- score_val(sentiments, text)
-  results <- c(sentiments, valence_dict, but_count)
+
+  # return results
+  results <- c(word_scores, valence_dict, but_count)
   return(results)
 }
