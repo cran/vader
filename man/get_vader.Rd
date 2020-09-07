@@ -4,7 +4,7 @@
 \alias{get_vader}
 \title{Get a named vector of vader results for a single text document}
 \usage{
-get_vader(text, incl_nt = T, neu_set = T)
+get_vader(text, incl_nt = T, neu_set = T, rm_qm = T)
 }
 \arguments{
 \item{text}{to be analyzed; for get_vader(), the text should be a character string}
@@ -12,6 +12,8 @@ get_vader(text, incl_nt = T, neu_set = T)
 \item{incl_nt}{defaults to T, indicates whether you wish to incl UNUSUAL n't contractions (e.g., yesn't) in negation analysis}
 
 \item{neu_set}{defaults to T, indicates whether you wish to count neutral words in calculations}
+
+\item{rm_qm}{defaults to T, indicates whether you wish to clean quotation marks from text (setting to F may result in errors)}
 }
 \value{
 A named vector containing the valence score for each word; an overall, compound valence score for the text; the weighted percentage of positive, negative, and neutral words in the text; and the frequency of the word "but".
@@ -52,6 +54,8 @@ In the examples below, "yesn't" is an internet neologism meaning "no", "maybe ye
 get_vader("I yesn't like it")
 get_vader("I yesn't like it", incl_nt = FALSE)
 get_vader("I yesn't like it", neu_set = FALSE)
+get_vader("I said \"I'm not happy\"", rm_qm = FALSE)
+get_vader("I said \" I'm not happy \" ", rm_qm = FALSE)
 
 }
 \seealso{

@@ -4,7 +4,7 @@ polarity_scores <- function(text){
   wpe <- wordsPlusEmo(text)
   sentiments <- NULL
   for(i in seq_along(wpe)) {
-    valence <- 0
+    if(neu_set == T) {valence <- 0} else {valence <- NA}
     item <- tolower(wpe[i])
     #check if item is in booster diction (single words)
     if(item %in% names(BOOSTER_DICT)){
@@ -21,13 +21,11 @@ polarity_scores <- function(text){
     }
     #check if item is in idiom diction (non-vader section)
     else if(item %in% unlist(strsplit(tm::removeWords(names(IDIOMS), stopwords("en")), " "))){
-      valence <- idioms_check(wpe, i, valence, non_dic = T)
-      sentiments[i] <- valence
+      sentiments[i] <- idioms_check(wpe, i, valence, non_dic = T)
     }
+    ############ ADDED THIS LINE TO COUNT NEUTRAL WORDS (WHICH DON'T EXIST IN VADER LEXICON)
     else {
-      ############ ADDED THIS LINE TO COUNT NEUTRAL WORDS (WHICH DON'T EXIST IN VADER LEXICON)
-      if(neu_set == T) {sentiments[i] <- 0}
-      else {sentiments[i] <- NA}
+      sentiments[i] <- valence
     }
   }
 
